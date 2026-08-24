@@ -1,0 +1,23 @@
+# Local data cache (regenerated via build_cache.py — never committed)
+cache/
+
+# Pre-correction backups
+_pre_correction_backup/
+data/_pre_correction_backup/
+
+# Pickles anywhere
+*.pkl
+
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environments
+.env
+.venv/
+venv/
