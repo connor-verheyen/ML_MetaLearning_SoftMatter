@@ -21,3 +21,6 @@ Thumbs.db
 .env
 .venv/
 venv/
+
+# Working/process docs — kept locally, never published
+docs/working/
