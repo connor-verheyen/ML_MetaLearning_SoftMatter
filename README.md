@@ -2,10 +2,12 @@
 
 This repository contains the data, processing pipeline, and analysis notebooks for the study:
 
-> Practical insights for applying machine learning to soft materials science: an empirical study of model optimization and evaluation on granular hydrogel datasets\*\*
+> Practical insights for applying machine learning to soft materials science: an empirical study of model optimization and evaluation on granular hydrogel datasets.
 > C. A. Verheyen, J. A. Lewis, E. T. Roche
 
 It is the analysis companion to a two-part submission to *Frontiers in Soft Matter* (Research Topic on data-driven modeling for soft matter). The companion FAIR2 data-resource article describes the underlying experimental datasets in full.
+
+![Graphical overview of meta-learning workflow](figures/Figure1_graphicaloverview_resided.tiff)
 
 \---
 
