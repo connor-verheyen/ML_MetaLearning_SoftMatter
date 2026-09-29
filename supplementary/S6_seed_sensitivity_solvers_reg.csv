@@ -1,0 +1,5 @@
+algorithm,median,p95,max
+LR_SGD,2.28,141.06,219.02
+XGB,0.01,4.09,7.86
+Huber,0.01,2.35,46.84
+Ridge,0.0,0.0,0.0

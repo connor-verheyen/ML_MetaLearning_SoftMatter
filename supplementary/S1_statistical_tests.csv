@@ -1,0 +1,11 @@
+comparison,n,stat,p,median_diff,p_bh,sig_bh
+[clf] naive-HPO vs AS,14,13.0,0.01074,-0.01475,0.02686,True
+[clf] CASH vs AS,14,30.0,0.17261,-0.00959,0.24658,False
+[clf] AS→HPO vs AS,14,49.0,0.85522,-0.0017,0.92651,False
+[clf] single vs nested,14,0.0,0.00012,0.02347,0.00122,True
+[clf] k=10 vs k=2,14,47.0,0.76086,0.00089,0.92651,False
+[reg] naive-HPO vs AS,17,12.0,0.00107,10.19082,0.00356,True
+[reg] CASH vs AS,17,74.0,0.92651,-0.07658,0.92651,False
+[reg] AS→HPO vs AS,17,40.0,0.08865,-0.92975,0.14776,False
+[reg] single vs nested,17,0.0,0.00044,-0.74416,0.00219,True
+[reg] k=10 vs k=2,17,32.0,0.03479,-1.43207,0.06958,False

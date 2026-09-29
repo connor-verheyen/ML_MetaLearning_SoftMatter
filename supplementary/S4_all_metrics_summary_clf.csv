@@ -1,0 +1,15 @@
+,accuracy,precision,recall,f1
+ext_qual_binary,0.8385,0.8456,0.9189,0.8767
+ext_qual_failure_mode,0.7456,0.7334,0.7456,0.7281
+ext_qual_filament_outcome,0.7567,0.7794,0.7567,0.7327
+ext_quant_avg_force_under4,0.8241,0.8832,0.8605,0.8665
+ext_quant_max_force_under5,0.8229,0.8741,0.8484,0.851
+ext_quant_stability,0.8519,0.9263,0.9092,0.9079
+microgel_formation,0.8716,0.899,0.9812,0.9306
+microgel_jamming_curves_over08,0.7204,0.745,0.7014,0.7071
+microgel_shape,0.713,0.7035,0.713,0.6772
+microgel_size_evolution_under300,0.8997,0.9085,0.9035,0.8884
+rheo_osc_plateau_loss_under20,0.8412,0.8518,0.8182,0.8076
+rheo_osc_plateau_storage_over1000,0.8816,0.8611,0.7308,0.7254
+rheo_osc_yield_strain_over10,0.7919,0.8388,0.8978,0.8516
+rheo_osc_yield_stress_over20,0.7923,0.8043,0.84,0.7936

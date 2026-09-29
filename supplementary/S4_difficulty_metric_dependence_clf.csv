@@ -1,0 +1,15 @@
+task,accuracy,precision,recall,f1,max_rank_shift
+rheo_osc_plateau_storage_over1000,13,9,3,3,10
+ext_qual_binary,9,7,13,11,6
+rheo_osc_yield_strain_over10,5,6,10,9,5
+rheo_osc_plateau_loss_under20,10,8,6,7,4
+ext_quant_avg_force_under4,8,11,9,10,3
+ext_quant_max_force_under5,7,10,8,8,3
+ext_quant_stability,11,14,12,13,3
+microgel_size_evolution_under300,14,13,11,12,3
+ext_qual_failure_mode,3,2,4,4,2
+microgel_formation,12,12,14,14,2
+microgel_jamming_curves_over08,2,3,1,2,2
+rheo_osc_yield_stress_over20,6,5,7,6,2
+ext_qual_filament_outcome,4,4,5,5,1
+microgel_shape,1,1,2,1,1
