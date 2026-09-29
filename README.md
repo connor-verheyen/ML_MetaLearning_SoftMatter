@@ -2,7 +2,7 @@
 
 This repository contains the data, processing pipeline, and analysis notebooks for the study:
 
-> \*\*Practical insights for applying machine learning to soft materials science: an empirical study of model optimization and evaluation on granular hydrogel datasets\*\*
+> Practical insights for applying machine learning to soft materials science: an empirical study of model optimization and evaluation on granular hydrogel datasets\*\*
 > C. A. Verheyen, J. A. Lewis, E. T. Roche
 
 It is the analysis companion to a two-part submission to *Frontiers in Soft Matter* (Research Topic on data-driven modeling for soft matter). The companion FAIR2 data-resource article describes the underlying experimental datasets in full.
@@ -21,7 +21,7 @@ Rather than trying to find the single best model for any one task, the study is 
 
 All processed data is **rebuilt from the raw datasets at runtime** — the repository ships the raw meta-learning datasets and the processing code, and each notebook regenerates the processed and aggregated dataframes from scratch. There are no pre-computed intermediate files required to run the notebooks.
 
-* **`utils.py`** — the shared processing module. Its central function, `process\_all\_tasks()`, loads the raw per-task datasets and produces the full set of processed and aggregated dataframes used by every figure notebook (per-task inner/outer split and aggregate frames, and the merged frames used for the nested-vs-single and search-strategy analyses).Note: **correct\_source\_data.py`** is a one-time source-data correction (documented for provenance; the committed raw data is already corrected).
+* **`utils.py`** — the shared processing module. Its central function, `process\_all\_tasks()`, loads the raw per-task datasets and produces the full set of processed and aggregated dataframes used by every figure notebook (per-task inner/outer split and aggregate frames, and the merged frames used for the nested-vs-single and search-strategy analyses).Note: *correct\_source\_data.py* is a one-time source-data correction (documented for provenance; the committed raw data is already corrected).
 * **`data/`** — the raw meta-learning datasets (committed).
 * **`notebooks/`** — one notebook per main-text figure; each imports `utils`, calls `process\_all\_tasks()`, and produces the corresponding figure.
 * **`figures/`** — exported versions of each main-text figure produced via the figure notebooks.
