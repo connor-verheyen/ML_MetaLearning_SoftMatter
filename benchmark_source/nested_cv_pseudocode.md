@@ -1,0 +1,42 @@
+INPUTS:
+  task datasets (features X, target y, experimental-group IDs G) for each of 31 tasks
+  algorithms A = {LR(SGD), GP, KNN, SVM, RF, GB, MLP}, each with a default config and a hyperparameter grid
+  fold counts K = {2, 3, 4, 5, 10}
+  random seeds S = {0, 1, 2}
+  metric suite (classification: accuracy, precision, recall, f1, ...; regression: neg-MAE, neg-MedAE, ...)
+
+for each task:
+  determine problem_type (classification or regression)
+  choose grouped splitter:
+      classification -> StratifiedGroupKFold   (preserves class balance AND keeps each group intact)
+      regression     -> GroupKFold             (keeps each group intact)
+
+  for each seed s in S:
+      shuffle the data by experimental GROUP (keep each group's rows together), seeded by s
+
+      for each outer_k in K:
+          outer_cv = GroupSplitter(n_splits = outer_k)
+          for each (outer_train, outer_test) in outer_cv.split(X, y, groups=G):
+
+              # ----- OUTER (held-out) evaluation path -----
+              # runs a grid search on the full data to record every config's outer-fold score
+
+              # ----- INNER (model-selection) path -----
+              for each inner_k in K:
+                  inner_cv = GroupSplitter(n_splits = inner_k)
+                  for each algorithm a in A:
+                      pipeline = Pipeline([ preprocess (MinMaxScaler | passthrough),  a ])
+                      GridSearchCV(pipeline, grid[a], cv = inner_cv, scoring = metric_suite,
+                                   refit = False, error_score = NaN)
+                          .fit(X[outer_train], y[outer_train], groups = G[outer_train])
+                      # preprocessing is fit ONLY on each inner-training fold -> no leakage
+                      record every configuration's inner-fold scores (all metrics)
+
+  aggregate per (task, algorithm, config, seed, outer_k, inner_k, fold):
+      mean / median / std / min / max across folds
+      flag failed/divergent REGRESSION outputs (error > 2 x target range) as failed runs
+      retain failure rates (reported as an indicator of algorithmic fragility)
+
+OUTPUT:
+  per-instance split-level logs + aggregated results (inner & outer), for every trained-model instance
+  (~19.6 million instances total: ~18.8M inner-loop + ~0.8M outer-loop)

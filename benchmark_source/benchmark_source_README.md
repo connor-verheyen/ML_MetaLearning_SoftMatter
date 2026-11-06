@@ -1,0 +1,12 @@
+###benchmark_source
+Precursor data and tooling for the meta-learning benchmark. This folder contains the upstream materials that *generate* the meta-learning datasets analyzed elsewhere in this repository: the baseline machine-learning tasks (the "seeds"), their provenance documentation, and the full computational pipeline that produces the ~19.6 million model instances from them.
+
+All 31 baseline tasks derive from a single prior experimental publication (Verheyen et al., 2023, Matter 6, 1015–1036). No new physical-experiment data were generated for this resource; the novelty is at the meta-learning level (the model-instance datasets built on top of these tasks).
+
+###Contents
+* prepared_ML_tasks/ — the 31 prepared baseline ML tasks (14 classification, 17 regression), one file per task. These are the inputs to the meta-learning pipeline. Each file contains the predictors, the target, and an experimental-group identifier used for grouped cross-validation.
+* metalearning_pipeline/FullFactorialExperimentalPipeline.py — the complete full-factorial meta-learning pipeline used to generate the benchmark. For each task it executes grouped nested cross-validation (StratifiedGroupKFold for classification, GroupKFold for regression) over inner and outer fold counts k ∈ {2, 3, 4, 5, 10}, across seven algorithms with default and grid-searched configurations, over three data shuffles, recording a suite of evaluation metrics for every trained-model instance. Data-dependent preprocessing (feature scaling) is implemented inside the scikit-learn Pipeline and fit only on training partitions within each fold, preventing leakage.
+* ml_task_provenance/ML_task_provenance_table.csv — a per-task provenance and summary table: source publication, task type and formulation, number of experimental groups, sample size, number of predictors, class count/distribution (classification) or target mean/median/range/standard deviation (regression), and an explicit grouping of tasks by shared measurement family with non-independence flags (e.g., thresholded classification tasks derived from parent regression targets; amplitude-sweep tasks pooled from shared underlying oscillatory curves).
+
+###Reproducing the benchmark
+Set the pipeline's data path to prepared_ML_tasks/ and run FullFactorialExperimentalPipeline.py. Software/environment requirements are listed in the repository root. A schematic overview of the full data-generation and analysis process is shown on the repository landing page.
